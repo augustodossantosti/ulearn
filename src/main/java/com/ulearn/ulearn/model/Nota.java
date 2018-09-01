@@ -1,0 +1,15 @@
+package com.ulearn.ulearn.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Getter
+@Setter
+public class Nota {
+    private Aluno aluno;
+    private Curso curso;
+    private Double nota;
+    private Date data;
+}

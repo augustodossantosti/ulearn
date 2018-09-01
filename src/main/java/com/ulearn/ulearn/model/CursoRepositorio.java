@@ -19,5 +19,13 @@ public class CursoRepositorio {
         cursos.add(curso);
     }
 
+    public Curso buscarCursoPorNome(String nome) {
+        for(Curso curso: cursos) {
+            if (curso.getNome().equalsIgnoreCase(nome)) {
+                return curso;
+            }
+        }
+        return null;
+    }
 
 }

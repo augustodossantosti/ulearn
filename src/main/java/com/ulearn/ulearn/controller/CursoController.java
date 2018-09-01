@@ -2,15 +2,13 @@ package com.ulearn.ulearn.controller;
 
 import com.ulearn.ulearn.model.Curso;
 import com.ulearn.ulearn.model.CursoRepositorio;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "/cursos")
+@CrossOrigin(origins = "*")
 public class CursoController {
 
     private CursoRepositorio repositorio = new CursoRepositorio();
