@@ -3,6 +3,7 @@ package com.ulearn.ulearn.model;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -20,12 +21,16 @@ public class CursoRepositorio {
     }
 
     public Curso buscarCursoPorNome(String nome) {
-        for(Curso curso: cursos) {
+        for (Curso curso: cursos) {
             if (curso.getNome().equalsIgnoreCase(nome)) {
                 return curso;
             }
         }
         return null;
+    }
+
+    public List<Curso> listarCursos() {
+        return Collections.unmodifiableList(cursos);
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class Nota {
+public class Avaliacao {
     private Aluno aluno;
     private Curso curso;
     private Double nota;
