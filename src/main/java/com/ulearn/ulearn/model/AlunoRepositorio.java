@@ -9,7 +9,7 @@ public class AlunoRepositorio {
     private List<Aluno> alunos = new ArrayList<>();
 
     public AlunoRepositorio() {
-        adicionarAluno(new Aluno("Hermes","asterix@obelix.uol.br", "cesar"));
+        adicionarAluno(new Aluno("Hermes","asterix@obelix.uol.com.br", "cesar"));
     }
 
     public void adicionarAluno(Aluno aluno) {
