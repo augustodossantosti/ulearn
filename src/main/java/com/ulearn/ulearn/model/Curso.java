@@ -11,9 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Curso {
 
+    private int id;
     private String nome;
     private String categoria;
-    private Double valor;
     private List<Aula> aulas;
     private String professor;
 }

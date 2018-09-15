@@ -1,26 +1,15 @@
 package com.ulearn.ulearn.controller;
 
-import com.ulearn.ulearn.model.Curso;
-import com.ulearn.ulearn.model.CursoRepositorio;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import com.ulearn.ulearn.service.AcessoAoCurso;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/cursos")
 @CrossOrigin(origins = "*")
 public class CursoController {
 
-    private CursoRepositorio repositorio = new CursoRepositorio();
-
-    @GetMapping
-    public List<Curso> listarCursos() {
-        return repositorio.getCursos();
-    }
-
-    @PostMapping
-    public void adicionarCurso(Curso curso) {
-        repositorio.adicionarCurso(curso);
-    }
+    private AcessoAoCurso acessoAoCurso = new AcessoAoCurso();
 
 }

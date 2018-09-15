@@ -1,5 +1,6 @@
-package com.ulearn.ulearn.model;
+package com.ulearn.ulearn.repository;
 
+import com.ulearn.ulearn.model.Curso;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -10,8 +11,7 @@ import java.util.List;
 public class CursoRepositorio {
 
     public CursoRepositorio() {
-        adicionarCurso(new Curso("Contabilidade", "Finanças", 150.0, new ArrayList<>(),
-                "Morette"));
+        adicionarCurso(new Curso(1, "Contabilidade", "Finanças", new ArrayList<>(), "Morette"));
     }
 
     private List<Curso> cursos = new ArrayList<>();

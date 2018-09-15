@@ -1,7 +1,7 @@
 package com.ulearn.ulearn.controller;
 
 import com.ulearn.ulearn.model.Aluno;
-import com.ulearn.ulearn.model.AlunoRepositorio;
+import com.ulearn.ulearn.repository.AlunoRepositorio;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class AlunoController {
     }
 
     @PostMapping
-    public void AdicionarAluno(Aluno aluno) {
+    public void adicionarAluno(Aluno aluno) {
         repositorio.adicionarAluno(aluno);
     }
 

@@ -1,4 +1,6 @@
-package com.ulearn.ulearn.model;
+package com.ulearn.ulearn.repository;
+
+import com.ulearn.ulearn.model.Aluno;
 
 import java.util.ArrayList;
 import java.util.Collections;
