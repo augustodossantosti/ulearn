@@ -15,7 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Aula {
 
+    private int id;
     private String nome;
-    private String cursoId;
+    private int cursoId;
     private String linkAula;
 }
