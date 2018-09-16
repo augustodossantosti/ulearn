@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/alunos")
-@CrossOrigin(origins = "*")
 public class AlunoController {
 
     private AlunoRepositorio repositorio = new AlunoRepositorio();
@@ -23,8 +22,8 @@ public class AlunoController {
         repositorio.adicionarAluno(aluno);
     }
 
-    @DeleteMapping
-    public boolean removerAluno(String nome) {
+    @DeleteMapping("/{nome}")
+    public boolean removerAluno(@PathVariable String nome) {
         return repositorio.removerAlunoPorNome(nome);
     }
 

@@ -8,18 +8,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/aulas")
-@CrossOrigin(origins = "*")
 public class AulaController {
+
     private AulaRepositorio repositorio = new AulaRepositorio();
 
     @GetMapping
-    public List<Aula> listarAulas() {return repositorio.listarAulas();}
+    public List<Aula> listarAulas() {
+        return repositorio.listarAulas();
+    }
 
     @PostMapping
-    public void adicionarAula(Aula aula){repositorio.adicionarAula(aula);}
+    public void adicionarAula(Aula aula) {
+        repositorio.adicionarAula(aula);
+    }
 
-    @DeleteMapping
-    public void removerAulaPorID (int id) {repositorio.removerAulaPorIdCurso(id);}
+    @DeleteMapping(path = "/{id}")
+    public void removerAula(@PathVariable Integer id) {
+        repositorio.removerAulaPorIdCurso(id);
+    }
 
     @GetMapping (path = "/buscarAula")
     public Aula buscarAula (@RequestParam(name = "nome", required = false) String nome, @RequestParam(name = "id", required = false) Integer id){

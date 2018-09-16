@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Aluno {
+
     private final String nome;
     private final String email;
     private final String senha;

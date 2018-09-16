@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>ulearn</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Technology Course Store</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,6 +23,30 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<developers>
+		<developer>
+			<name>Augusto Santos</name>
+            <roles>
+				<role>Java Developer</role>
+			</roles>
+			<email>augustodossantos.ti@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Matheus</name>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<email></email>
+		</developer>
+		<developer>
+			<name>Willian</name>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<email></email>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
@@ -39,18 +63,19 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.2</version>
 			<scope>provided</scope>
 		</dependency>
-	</dependencies>
 
+        <!-- Testes -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -60,6 +85,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

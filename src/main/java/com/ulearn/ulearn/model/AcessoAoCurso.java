@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class AcessoAoCursoAluno {
+public class AcessoAoCurso {
 
     private int cursoId;
     private int alunoId;
