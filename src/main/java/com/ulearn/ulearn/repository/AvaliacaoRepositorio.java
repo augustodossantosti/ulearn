@@ -10,15 +10,11 @@ public class AvaliacaoRepositorio {
     private List<Avaliacao> avaliacoes = new ArrayList<>();
 
     public AvaliacaoRepositorio() {
-        adicionarAvaliacao(new Avaliacao(1,1));
+        gravarAvaliacao(new Avaliacao(1,1));
     }
 
-    public void adicionarAvaliacao (Avaliacao avaliacao){
+    public void gravarAvaliacao(Avaliacao avaliacao){
         avaliacoes.add(avaliacao);
-    }
-
-    public void removerAvaliacaoPorIdAlunoIdCurso (int IdCurso,int IdAluno){
-        avaliacoes.remove(buscar(IdCurso,IdAluno));
     }
 
     public Avaliacao buscar(int IdAluno, int Idcurso){

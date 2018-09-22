@@ -9,8 +9,7 @@ public class CalcularNota {
 
     private AvaliacaoRepositorio avaliacaoRepositorio = new AvaliacaoRepositorio();
 
-    public Avaliacao calcularNota(int IdAluno, int IdCurso) {
-        final Avaliacao avaliacao = avaliacaoRepositorio.buscar(IdAluno, IdCurso);
+    public Avaliacao calcularNota(Avaliacao avaliacao) {
         for (Pergunta pergunta : avaliacao.getPerguntas()) {
             for (Alternativa alternativa : pergunta.listarAlternativas()) {
                 if (alternativa.getEstaCorreta() && alternativa.getFoiSelecionada()) {
@@ -18,6 +17,7 @@ public class CalcularNota {
                 }
             }
         }
+        avaliacaoRepositorio.gravarAvaliacao(avaliacao);
         return avaliacao;
     }
 
