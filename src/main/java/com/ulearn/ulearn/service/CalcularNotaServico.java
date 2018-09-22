@@ -5,7 +5,7 @@ import com.ulearn.ulearn.model.Avaliacao;
 import com.ulearn.ulearn.model.Pergunta;
 import com.ulearn.ulearn.repository.AvaliacaoRepositorio;
 
-public class CalcularNota {
+public class CalcularNotaServico {
 
     private AvaliacaoRepositorio avaliacaoRepositorio = new AvaliacaoRepositorio();
 
