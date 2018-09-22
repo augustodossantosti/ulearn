@@ -1,7 +1,7 @@
 package com.ulearn.ulearn.controller;
 
 import com.ulearn.ulearn.model.Aula;
-import com.ulearn.ulearn.model.AulaRepositorio;
+import com.ulearn.ulearn.repository.AulaRepositorio;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

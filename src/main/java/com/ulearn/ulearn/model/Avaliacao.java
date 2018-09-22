@@ -1,18 +1,26 @@
 package com.ulearn.ulearn.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class Avaliacao {
 
-    private Aluno aluno;
-    private Curso curso;
+    private int IdAluno;
+    private int IdCurso;
     private Double nota;
-    private Date data;
+    private LocalDate data;
+    private List<Pergunta> perguntas = new ArrayList<>();
+
+    public Avaliacao (int idcurso, int idaluno) {
+        this.nota = 0.0;
+        this.IdCurso = idcurso;
+        this.IdAluno = idaluno;
+        this.data = LocalDate.now();
+    }
 }
