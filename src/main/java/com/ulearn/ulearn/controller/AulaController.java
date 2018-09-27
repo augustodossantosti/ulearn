@@ -18,13 +18,8 @@ public class AulaController {
     }
 
     @PostMapping
-    public void adicionarAula(Aula aula) {
+    public void adicionarAula(@RequestBody Aula aula) {
         repositorio.adicionarAula(aula);
-    }
-
-    @DeleteMapping(path = "/{id}")
-    public void removerAula(@PathVariable Integer id) {
-        repositorio.removerAulaPorIdCurso(id);
     }
 
     @GetMapping (path = "/buscarAula")

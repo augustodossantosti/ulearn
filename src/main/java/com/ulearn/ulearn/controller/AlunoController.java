@@ -18,13 +18,8 @@ public class AlunoController {
     }
 
     @PostMapping
-    public void adicionarAluno(Aluno aluno) {
+    public void adicionarAluno(@RequestBody Aluno aluno) {
         repositorio.adicionarAluno(aluno);
-    }
-
-    @DeleteMapping("/{nome}")
-    public boolean removerAluno(@PathVariable String nome) {
-        return repositorio.removerAlunoPorNome(nome);
     }
 
     @GetMapping(path = "/buscar")
