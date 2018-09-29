@@ -17,8 +17,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Aula {
 
-    private int id;
+    private Integer id;
     private String nome;
-    private int cursoId;
+    private Integer cursoId;
     private String linkAula;
 }

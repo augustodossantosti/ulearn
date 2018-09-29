@@ -11,13 +11,13 @@ import java.util.List;
 @Setter
 public class Avaliacao {
 
-    private int IdAluno;
-    private int IdCurso;
+    private Integer IdAluno;
+    private Integer IdCurso;
     private Double nota;
     private LocalDate data;
     private List<Pergunta> perguntas = new ArrayList<>();
 
-    public Avaliacao (int idcurso, int idaluno) {
+    public Avaliacao (Integer idcurso, Integer idaluno) {
         this.nota = 0.0;
         this.IdCurso = idcurso;
         this.IdAluno = idaluno;

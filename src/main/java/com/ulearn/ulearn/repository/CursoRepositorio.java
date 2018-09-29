@@ -11,7 +11,8 @@ public class CursoRepositorio {
     private List<Curso> cursos = new ArrayList<>();
 
     public CursoRepositorio() {
-        adicionarCurso(new Curso(1, "Contabilidade", "Finanças", new ArrayList<>(), "Morette"));
+        adicionarCurso(new Curso(123, "Redes", "Teoria", "Teste de curso",
+                "www.qualquer.com.br", "Curso voltado ao sono", "Wellington"));
     }
 
     public List<Curso> listarCursos() {
@@ -25,6 +26,15 @@ public class CursoRepositorio {
     public Curso buscarCursoPorNome(String nome) {
         for (Curso curso: cursos) {
             if (curso.getNome().equalsIgnoreCase(nome)) {
+                return curso;
+            }
+        }
+        return null;
+    }
+
+    public Curso buscarCursoPorId(Integer id) {
+        for(Curso curso: cursos) {
+            if (curso.getId().equals(id)) {
                 return curso;
             }
         }

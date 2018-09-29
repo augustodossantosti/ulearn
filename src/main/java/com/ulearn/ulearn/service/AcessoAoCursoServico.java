@@ -28,6 +28,10 @@ public class AcessoAoCursoServico {
         return cursoRepositorio.buscarCursoPorNome(nome);
     }
 
+    public Curso buscarCursoPorId(Integer id) {
+        return cursoRepositorio.buscarCursoPorId(id);
+    }
+
     public void concederAcesso(int cursoId, int alunoId) {
         final AcessoAoCurso acessoAoCurso = new AcessoAoCurso(cursoId, alunoId);
         acessoAoCursoRepositorio.concederAcesso(acessoAoCurso);

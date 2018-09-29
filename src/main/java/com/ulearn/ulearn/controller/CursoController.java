@@ -23,13 +23,18 @@ public class CursoController {
     }
 
     @PostMapping
-    public void adicionarCurso(Curso curso) {
+    public void adicionarCurso(@RequestBody Curso curso) {
         acessoAoCursoServico.adicionarCurso(curso);
     }
 
     @DeleteMapping(path = "/{id}")
     public void removerCurso(@PathVariable Integer id) {
         acessoAoCursoServico.removerCurso(id);
+    }
+
+    @GetMapping(path = "/{id}")
+    public Curso buscarCursoPorId(@PathVariable Integer id) {
+        return acessoAoCursoServico.buscarCursoPorId(id);
     }
 
     @GetMapping(path = "/buscar")
@@ -50,9 +55,9 @@ public class CursoController {
     }
 
     @GetMapping(path = "/avaliacao")
-    public Avaliacao buscar(@RequestParam(name = "cursoId") Integer cursoId,
+    public Avaliacao buscarAvaliacao(@RequestParam(name = "cursoId") Integer cursoId,
                             @RequestParam(name = "alunoId") Integer alunoId) {
-        return buscar(cursoId, alunoId);
+        return buscarAvaliacao(cursoId, alunoId);
     }
 
     @PostMapping(path = "/avaliacao")
