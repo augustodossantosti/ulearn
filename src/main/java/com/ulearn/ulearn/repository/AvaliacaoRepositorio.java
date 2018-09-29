@@ -17,7 +17,7 @@ public class AvaliacaoRepositorio {
         avaliacoes.add(avaliacao);
     }
 
-    public Avaliacao buscar(int Idcurso, int IdAluno){
+    public Avaliacao buscarAvaliacao(int Idcurso, int IdAluno){
         for (Avaliacao avaliacao:avaliacoes){
             if (avaliacao.getIdAluno() == IdAluno && avaliacao.getIdCurso()== Idcurso) return avaliacao;
         }

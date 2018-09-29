@@ -56,8 +56,8 @@ public class CursoController {
 
     @GetMapping(path = "/avaliacao")
     public Avaliacao buscarAvaliacao(@RequestParam(name = "cursoId") Integer cursoId,
-                            @RequestParam(name = "alunoId") Integer alunoId) {
-        return buscarAvaliacao(cursoId, alunoId);
+                                     @RequestParam(name = "alunoId") Integer alunoId) {
+        return avaliacaoRepositorio.buscarAvaliacao(cursoId, alunoId);
     }
 
     @PostMapping(path = "/avaliacao")
