@@ -17,6 +17,11 @@ public class AulaController {
         return repositorio.listarAulas();
     }
 
+    @GetMapping(path = "/{id}")
+    public Aula buscarPorId(@PathVariable(name = "id") Integer aulaId) {
+        return repositorio.buscarPorIDAula(aulaId);
+    }
+
     @PostMapping
     public void adicionarAula(@RequestBody Aula aula) {
         repositorio.adicionarAula(aula);

@@ -12,6 +12,7 @@ public class AulaRepositorio {
 
     public AulaRepositorio () {
         adicionarAula(new Aula(1,"sono",1,"youtube"));
+        adicionarAula(new Aula(2,"lp",2,"youtube"));
     }
 
     public void adicionarAula (Aula aula) {

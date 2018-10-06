@@ -11,7 +11,9 @@ public class CursoRepositorio {
     private List<Curso> cursos = new ArrayList<>();
 
     public CursoRepositorio() {
-        adicionarCurso(new Curso(123, "Redes", "Teoria", "Teste de curso",
+        adicionarCurso(new Curso(1, "Redes", "Teoria", "Teste de curso",
+                "www.qualquer.com.br", "Curso voltado ao sono", "Wellington"));
+        adicionarCurso(new Curso(2, "Redes", "Teoria", "Teste de curso",
                 "www.qualquer.com.br", "Curso voltado ao sono", "Wellington"));
     }
 
