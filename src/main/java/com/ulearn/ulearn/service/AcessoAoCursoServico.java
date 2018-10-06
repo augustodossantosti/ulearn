@@ -5,6 +5,7 @@ import com.ulearn.ulearn.model.Curso;
 import com.ulearn.ulearn.repository.AcessoAoCursoRepositorio;
 import com.ulearn.ulearn.repository.CursoRepositorio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AcessoAoCursoServico {
@@ -14,6 +15,15 @@ public class AcessoAoCursoServico {
 
     public List<Curso> listarCursos() {
         return cursoRepositorio.listarCursos();
+    }
+
+    public List<Curso> listarCursosDoAluno(Integer idAluno) {
+        final List<AcessoAoCurso> acessos = acessoAoCursoRepositorio.buscarAcessosDoAluno(idAluno);
+        final List<Curso> encontrados = new ArrayList<>();
+        for (AcessoAoCurso acesso : acessos) {
+            encontrados.add(cursoRepositorio.buscarCursoPorId(acesso.getCursoId()));
+        }
+        return encontrados;
     }
 
     public void adicionarCurso(Curso curso) {

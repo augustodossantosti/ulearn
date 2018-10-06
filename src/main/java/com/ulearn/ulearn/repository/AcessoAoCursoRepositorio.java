@@ -21,4 +21,14 @@ public class AcessoAoCursoRepositorio {
             }
         }
     }
+
+    public List<AcessoAoCurso> buscarAcessosDoAluno(Integer alunoId) {
+        final List<AcessoAoCurso> encontrados = new ArrayList<>();
+        for (AcessoAoCurso acesso : acessos) {
+            if (acesso.getAlunoId().equals(alunoId)) {
+                encontrados.add(acesso);
+            }
+        }
+        return encontrados;
+    }
 }

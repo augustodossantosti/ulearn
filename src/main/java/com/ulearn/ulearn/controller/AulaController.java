@@ -28,7 +28,7 @@ public class AulaController {
     }
 
     @GetMapping (path = "/buscarAula")
-    public Aula buscarAula (@RequestParam(name = "nome", required = false) String nome, @RequestParam(name = "id", required = false) Integer id){
-        return nome != null ? repositorio.buscarPorNomeAula(nome) : repositorio.buscarPorIDAula(id);
+    public Aula buscarAula (@RequestParam(name = "nome") String nome){
+        return repositorio.buscarPorNomeAula(nome);
     }
 }

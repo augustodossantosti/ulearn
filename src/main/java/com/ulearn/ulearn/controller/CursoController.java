@@ -54,6 +54,11 @@ public class CursoController {
         acessoAoCursoServico.revogarAcesso(cursoId, alunoId);
     }
 
+    @GetMapping(path = "/acesso/{alunoId}")
+    public List<Curso> listarCursosDoAluno(@RequestParam(name = "alunoId") Integer alunoId) {
+        return acessoAoCursoServico.listarCursosDoAluno(alunoId);
+    }
+
     @GetMapping(path = "/avaliacao")
     public Avaliacao buscarAvaliacao(@RequestParam(name = "cursoId") Integer cursoId,
                                      @RequestParam(name = "alunoId") Integer alunoId) {
