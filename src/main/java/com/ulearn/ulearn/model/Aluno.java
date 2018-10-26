@@ -9,7 +9,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class Aluno {
 
     private Integer id;
@@ -17,6 +16,8 @@ public class Aluno {
     private String email;
     private String senha;
     private final List<Avaliacao> avaliacoes = new ArrayList<>();
+
+    public Aluno() {}
 
     public Aluno(Integer id, String nome, String email, String senha) {
         this.id = id;

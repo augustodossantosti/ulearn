@@ -1,5 +1,8 @@
 package com.ulearn.ulearn.repository;
 
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.internal.ObjectContainerFactory;
 import com.ulearn.ulearn.model.Aluno;
 
 import java.util.ArrayList;
@@ -8,44 +11,40 @@ import java.util.List;
 
 public class AlunoRepositorio {
 
-    private List<Aluno> alunos = new ArrayList<>();
+    private final ObjectContainer container;
 
     public AlunoRepositorio() {
-        adicionarAluno(new Aluno(123, "Hermes","asterix@obelix.uol.com.br", "cesar"));
+        container = Db4oEmbedded.openFile("bd/alunos.db4o");
+        container.store(new Aluno(123, "Hermes","asterix@obelix.uol.com.br", "cesar"));
     }
 
     public void adicionarAluno(Aluno aluno) {
-        alunos.add(aluno);
+        container.store(aluno);
     }
 
-    public boolean removerAlunoPorNome(String nome) {
+    public void removerAlunoPorNome(String nome) {
+        final List<Aluno> alunos = container.queryByExample(Aluno.class);
         for (Aluno aluno : alunos) {
             if (aluno.getNome().equals(nome)) {
-                return alunos.remove(aluno);
+                container.delete(aluno);
             }
         }
-        return false;
     }
 
     public Aluno buscarAlunoPorNome(String nome) {
-        for (Aluno aluno : alunos) {
-            if (aluno.getNome().equals(nome)) {
-                return aluno;
-            }
-        }
-        return null;
+        final Aluno aluno = new Aluno();
+        aluno.setNome(nome);
+        return (Aluno) container.queryByExample(aluno).next();
     }
 
     public Aluno buscarAlunoPorEmail(String email) {
-        for (Aluno aluno : alunos) {
-            if (aluno.getEmail().equals(email)) {
-                return aluno;
-            }
-        }
-        return null;
+        final Aluno aluno = new Aluno();
+        aluno.setEmail(email);
+        return (Aluno) container.queryByExample(aluno).next();
     }
 
     public List<Aluno> listarAlunos() {
+        final List<Aluno> alunos = container.queryByExample(Aluno.class);
         return Collections.unmodifiableList(alunos);
     }
 }
