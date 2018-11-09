@@ -2,10 +2,8 @@ package com.ulearn.ulearn.repository;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
-import com.db4o.internal.ObjectContainerFactory;
 import com.ulearn.ulearn.model.Aluno;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +13,7 @@ public class AlunoRepositorio {
 
     public AlunoRepositorio() {
         container = Db4oEmbedded.openFile("bd/alunos.db4o");
-        container.store(new Aluno(123, "Hermes","asterix@obelix.uol.com.br", "cesar"));
+        //container.store(new Aluno(123, "Hermes","asterix@obelix.uol.com.br", "cesar"));
     }
 
     public void adicionarAluno(Aluno aluno) {

@@ -1,13 +1,9 @@
 package com.ulearn.ulearn.configuration;
 
-import com.db4o.Db4oEmbedded;
-import com.db4o.ObjectContainer;
-import com.db4o.internal.ObjectContainerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -16,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Augusto Santos
  * @version 1.0 16/09/18
  */
-@EnableWebMvc
 @Configuration
 public class ConfiguracaoSpringMvc implements WebMvcConfigurer {
 
@@ -24,5 +19,12 @@ public class ConfiguracaoSpringMvc implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE").allowedOrigins("*")
                 .allowedHeaders("*");
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("index.html");
+        registry.addViewController("/login").setViewName("login.html");
+        registry.addViewController("/meus-cursos").setViewName("cursos.html");
     }
 }

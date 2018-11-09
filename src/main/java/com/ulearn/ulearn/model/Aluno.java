@@ -25,5 +25,4 @@ public class Aluno {
         this.email = email;
         this.senha = senha;
     }
-
 }

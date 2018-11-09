@@ -58,15 +58,24 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.2</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>deb4o</groupId>
+			<artifactId>deb4o</artifactId>
+			<scope>system</scope>
+			<version>8.0.249.16098</version>
+			<systemPath>${basedir}/lib/db4o-8.0.249.16098-all-java5.jar</systemPath>
 		</dependency>
 
         <!-- Testes -->

@@ -1,0 +1,51 @@
+.authentication-form {
+    background: #FFFFFF;
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  .authentication-form input {
+    width: 100%;
+    border: none;
+    margin: 0 0 15px 0;
+    padding: 15px;
+    font-size: 14px;
+    background: #f2f2f2;
+  }
+  
+  .authentication-form .btn-submit {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    outline: none;
+    text-transform: uppercase;
+    background: rgb(122, 122, 122);
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+  }
+  
+  .authentication-form .btn-submit:hover, 
+  .authentication-form .btn-submit:active, 
+  .authentication-form .btn-submit:focus {
+    background: rgb(22, 22, 22);
+  }
+  
+  .authentication-form .message {
+    margin: 15px 0 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  
+  .authentication-form .message a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  
+  .authentication-form .register-form {
+    display: none;
+  }
