@@ -2,6 +2,7 @@ package com.ulearn.ulearn.repository;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
 import com.ulearn.ulearn.model.Aluno;
 
 import java.util.Collections;
@@ -13,7 +14,6 @@ public class AlunoRepositorio {
 
     public AlunoRepositorio() {
         container = Db4oEmbedded.openFile("bd/alunos.db4o");
-        //container.store(new Aluno(123, "Hermes","asterix@obelix.uol.com.br", "cesar"));
     }
 
     public void adicionarAluno(Aluno aluno) {
@@ -32,13 +32,15 @@ public class AlunoRepositorio {
     public Aluno buscarAlunoPorNome(String nome) {
         final Aluno aluno = new Aluno();
         aluno.setNome(nome);
-        return (Aluno) container.queryByExample(aluno).next();
+        final ObjectSet<Aluno> result = container.queryByExample(aluno);
+        return result.hasNext() ? result.next() : null;
     }
 
     public Aluno buscarAlunoPorEmail(String email) {
         final Aluno aluno = new Aluno();
         aluno.setEmail(email);
-        return (Aluno) container.queryByExample(aluno).next();
+        final ObjectSet<Aluno> result = container.queryByExample(aluno);
+        return result.hasNext() ? result.next() : null;
     }
 
     public List<Aluno> listarAlunos() {
