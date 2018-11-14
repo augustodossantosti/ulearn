@@ -21,12 +21,9 @@ public class AlunoRepositorio {
     }
 
     public void removerAlunoPorNome(String nome) {
-        final List<Aluno> alunos = container.queryByExample(Aluno.class);
-        for (Aluno aluno : alunos) {
-            if (aluno.getNome().equals(nome)) {
-                container.delete(aluno);
-            }
-        }
+        final Aluno aluno = new Aluno();
+        aluno.setNome(nome);
+        container.delete(aluno);
     }
 
     public Aluno buscarAlunoPorNome(String nome) {
@@ -34,7 +31,7 @@ public class AlunoRepositorio {
         aluno.setNome(nome);
         final ObjectSet<Aluno> result = container.queryByExample(aluno);
         return result.hasNext() ? result.next() : null;
-    }
+}
 
     public Aluno buscarAlunoPorEmail(String email) {
         final Aluno aluno = new Aluno();

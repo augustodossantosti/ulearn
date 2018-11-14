@@ -1,5 +1,9 @@
 package com.ulearn.ulearn.repository;
 
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
+import com.ulearn.ulearn.model.Aula;
 import com.ulearn.ulearn.model.Avaliacao;
 
 import java.util.ArrayList;
@@ -7,21 +11,21 @@ import java.util.List;
 
 public class AvaliacaoRepositorio {
 
-    private List<Avaliacao> avaliacoes = new ArrayList<>();
+    private final ObjectContainer container;
 
     public AvaliacaoRepositorio() {
-        gravarAvaliacao(new Avaliacao(1,1));
+        container = Db4oEmbedded.openFile("bd/avaliacao.db4o");
     }
 
-    public void gravarAvaliacao(Avaliacao avaliacao){
-        avaliacoes.add(avaliacao);
+    public void gravarAvaliacao(Avaliacao avaliacao) {
+        container.store(avaliacao);
     }
 
-    public Avaliacao buscarAvaliacao(int Idcurso, int IdAluno){
-        for (Avaliacao avaliacao:avaliacoes){
-            if (avaliacao.getIdAluno() == IdAluno && avaliacao.getIdCurso()== Idcurso) return avaliacao;
-        }
-        return null;
+    public Avaliacao buscarAvaliacao(int Idcurso, int IdAluno) {
+        final Avaliacao avaliacao = new Avaliacao();
+        avaliacao.setIdAluno(IdAluno);
+        avaliacao.setIdCurso(Idcurso);
+        final ObjectSet<Avaliacao> result = container.queryByExample(avaliacao);
+        return result.hasNext() ? result.next() : null;
     }
-
 }

@@ -1,14 +1,10 @@
 package com.ulearn.ulearn.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Curso {
 
     private Integer id;
@@ -19,6 +15,8 @@ public class Curso {
     private String descricao;
     private List<Aula> aulas;
     private String professor;
+
+    public Curso() {}
 
     public Curso (Integer id, String nome, String categoria, String resumo, String linkCapa,
                   String descricao, String professor) {

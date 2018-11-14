@@ -2,59 +2,51 @@ package com.ulearn.ulearn.repository;
 
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
 import com.db4o.internal.ObjectContainerFactory;
+import com.db4o.query.Query;
+import com.ulearn.ulearn.model.Aluno;
+import com.ulearn.ulearn.model.Aula;
 import com.ulearn.ulearn.model.Curso;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CursoRepositorio {
 
-    private ObjectContainer container;
-    private List<Curso> cursos = new ArrayList<>();
+    private final ObjectContainer container;
 
-    public CursoRepositorio() {
-        container = ObjectContainerFactory
-                .openObjectContainer(Db4oEmbedded.newConfiguration(), "bd/cursos.db4o");
-        adicionarCurso(new Curso(1, "Redes", "Teoria", "Teste de curso",
-                "www.qualquer.com.br", "Curso voltado ao sono", "Wellington"));
-        adicionarCurso(new Curso(2, "Redes", "Teoria", "Teste de curso",
-                "www.qualquer.com.br", "Curso voltado ao sono", "Wellington"));
+    public CursoRepositorio(){
+        container = Db4oEmbedded.openFile("bd/cursos.db4o");
     }
 
-    public List<Curso> listarCursos() {
+    public List<Curso> listarAlunos() {
+        final List<Curso> cursos = container.queryByExample(Curso.class);
         return Collections.unmodifiableList(cursos);
     }
-
     public void adicionarCurso(Curso curso) {
-        cursos.add(curso);
+        container.store(curso);
     }
 
     public Curso buscarCursoPorNome(String nome) {
-        for (Curso curso: cursos) {
-            if (curso.getNome().equalsIgnoreCase(nome)) {
-                return curso;
-            }
-        }
-        return null;
+        final Curso curso = new Curso();
+        curso.setNome(nome);
+        final ObjectSet<Curso> result = container.queryByExample(curso);
+        return result.hasNext() ? result.next() : null;
     }
 
-    public Curso buscarCursoPorId(Integer id) {
-        for(Curso curso: cursos) {
-            if (curso.getId().equals(id)) {
-                return curso;
-            }
-        }
-        return null;
+    public List<Curso> buscarCursoPorId(Integer id) {
+        final Curso curso = new Curso();
+        curso.setId(id);
+        return container.queryByExample(curso);
     }
 
     public void removerCurso(int cursoId) {
-        for (Curso curso : cursos) {
-            if (curso.getId() == cursoId) {
-                cursos.remove(curso);
-            }
-        }
+        final Curso curso = new Curso();
+        curso.setId(cursoId);
+        container.delete(curso);
     }
 
 }

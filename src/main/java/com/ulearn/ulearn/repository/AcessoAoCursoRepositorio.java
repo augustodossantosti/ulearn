@@ -1,34 +1,35 @@
 package com.ulearn.ulearn.repository;
 
+import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
 import com.ulearn.ulearn.model.AcessoAoCurso;
+import com.ulearn.ulearn.model.Aula;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AcessoAoCursoRepositorio {
 
-    private List<AcessoAoCurso> acessos = new ArrayList<>();
+    private final ObjectContainer container;
 
-    public void concederAcesso(AcessoAoCurso acesso) {
-        acessos.add(acesso);
+    public AcessoAoCursoRepositorio () {
+        container = Db4oEmbedded.openFile("bd/acessoAocurso.db4o");
     }
 
-    public void revogarAcesso(int cursoId, int alunoId) {
-        for (AcessoAoCurso acessoAoCurso : acessos) {
-            if (acessoAoCurso.getCursoId() == cursoId &&
-                    acessoAoCurso.getAlunoId() == alunoId) {
-                acessos.remove(acessoAoCurso);
-            }
-        }
+    public void concederAcesso(AcessoAoCurso acesso) {
+        container.store(acesso);
+    }
+
+    public AcessoAoCurso revogarAcesso(int cursoId, int alunoId) {
+       AcessoAoCurso acessoAoCurso = new AcessoAoCurso(cursoId,alunoId);
+       final ObjectSet<AcessoAoCurso> result = container.queryByExample(acessoAoCurso);
+       return result.hasNext() ? result.next() : null;
     }
 
     public List<AcessoAoCurso> buscarAcessosDoAluno(Integer alunoId) {
-        final List<AcessoAoCurso> encontrados = new ArrayList<>();
-        for (AcessoAoCurso acesso : acessos) {
-            if (acesso.getAlunoId().equals(alunoId)) {
-                encontrados.add(acesso);
-            }
-        }
-        return encontrados;
+        AcessoAoCurso acessoAoCurso = new AcessoAoCurso();
+        acessoAoCurso.setAlunoId(alunoId);
+        return container.queryByExample(acessoAoCurso);
     }
 }
