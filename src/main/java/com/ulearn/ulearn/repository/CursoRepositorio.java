@@ -49,4 +49,9 @@ public class CursoRepositorio {
         container.delete(curso);
     }
 
+    public List<Curso> listarCursos () {
+        final List<Curso> cursos = container.queryByExample(Curso.class);
+        return Collections.unmodifiableList(cursos);
+    }
+
 }

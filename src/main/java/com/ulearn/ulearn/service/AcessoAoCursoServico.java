@@ -38,7 +38,7 @@ public class AcessoAoCursoServico {
         return cursoRepositorio.buscarCursoPorNome(nome);
     }
 
-    public Curso buscarCursoPorId(Integer id) {
+    public List<Curso> buscarCursoPorId(Integer id) {
         return cursoRepositorio.buscarCursoPorId(id);
     }
 
