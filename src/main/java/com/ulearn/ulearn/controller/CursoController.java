@@ -2,7 +2,6 @@ package com.ulearn.ulearn.controller;
 
 import com.ulearn.ulearn.model.Avaliacao;
 import com.ulearn.ulearn.model.Curso;
-import com.ulearn.ulearn.repository.AvaliacaoRepositorio;
 import com.ulearn.ulearn.service.AcessoAoCursoServico;
 import com.ulearn.ulearn.service.CalcularNotaServico;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,7 @@ import java.util.List;
 public class CursoController {
 
     private AcessoAoCursoServico acessoAoCursoServico = new AcessoAoCursoServico();
-    private AvaliacaoRepositorio avaliacaoRepositorio = new AvaliacaoRepositorio();
-    private CalcularNotaServico calcularNotaServico = new CalcularNotaServico();
+    private CalcularNotaServico avaliacaoServico = new CalcularNotaServico();
 
     @GetMapping
     public List<Curso> listarCursos() {
@@ -62,13 +60,12 @@ public class CursoController {
     @GetMapping(path = "/avaliacao")
     public Avaliacao buscarAvaliacao(@RequestParam(name = "cursoId") Integer cursoId,
                                      @RequestParam(name = "alunoId") Integer alunoId) {
-        return avaliacaoRepositorio.buscarAvaliacao(cursoId, alunoId);
+        return avaliacaoServico.buscarAvaliacao(cursoId, alunoId);
     }
 
     @PostMapping(path = "/avaliacao")
     public Avaliacao calcularNota(@RequestBody Avaliacao avaliacao) {
-        return calcularNotaServico.calcularNota(avaliacao);
+        return avaliacaoServico.calcularNota(avaliacao);
     }
-
 
 }

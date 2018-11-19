@@ -18,8 +18,8 @@ public class AulaController {
     }
 
     @GetMapping(path = "/{id}")
-    public Aula buscarPorId(@PathVariable(name = "id") Integer aulaId) {
-        return repositorio.buscarPorIDAula(aulaId);
+    public List<Aula> buscarPorIdDoCurso(@PathVariable(name = "id") Integer aulaId) {
+        return repositorio.buscarPorIdDoCurso(aulaId);
     }
 
     @PostMapping

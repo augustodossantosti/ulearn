@@ -3,15 +3,9 @@ package com.ulearn.ulearn.repository;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
-import com.db4o.internal.ObjectContainerFactory;
-import com.db4o.query.Query;
-import com.ulearn.ulearn.model.Aluno;
-import com.ulearn.ulearn.model.Aula;
 import com.ulearn.ulearn.model.Curso;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 public class CursoRepositorio {
@@ -20,6 +14,15 @@ public class CursoRepositorio {
 
     public CursoRepositorio(){
         container = Db4oEmbedded.openFile("bd/cursos.db4o");
+        adicionarCurso(new Curso(1, "Python", "Development", "Aprenda Python e domine o mundo!",
+                "https://2.bp.blogspot.com/-4bKb2pG_jfA/WTTPJDOqa6I/AAAAAAAAAKU/wacHnUfGNpMk_tSl6LyQCbip8I9bHDKGgCLcB/s640/Curso-online-de-Python-principal-11-460x281.png",
+                "Descrição do curso de Python.", "Bruno Rodrigues"));
+        adicionarCurso(new Curso(2, "Java", "Development", "Aprenda Java e domine o mundo!",
+                "https://www.wreducacional.com.br/img_cursos/prod/img_610x320/informatica/linguagem-de-programacao-de-java.jpg",
+                "Descrição do curso de Java.", "Bruno Rodrigues"));
+        adicionarCurso(new Curso(3, "PHP", "Development", "Aprenda PHP e domine o mundo!",
+                "https://www.cursosgratisonline.com.br/curso/images/207-php.jpg",
+                "Descrição do curso de PHP.", "Bruno Rodrigues"));
     }
 
     public List<Curso> listarAlunos() {
@@ -37,10 +40,11 @@ public class CursoRepositorio {
         return result.hasNext() ? result.next() : null;
     }
 
-    public List<Curso> buscarCursoPorId(Integer id) {
+    public Curso buscarCursoPorId(Integer id) {
         final Curso curso = new Curso();
         curso.setId(id);
-        return container.queryByExample(curso);
+        final ObjectSet<Curso> result = container.queryByExample(curso);
+        return result.hasNext() ? result.next() : null;
     }
 
     public void removerCurso(int cursoId) {

@@ -20,12 +20,6 @@ public class AulaRepositorio {
         container.store(aula);
     }
 
-    public void removerAulaPorIdCurso (Integer id) {
-        final Aula aula = new Aula();
-        aula.setId(id);
-        container.delete(aula);
-    }
-
     public Aula buscarPorNomeAula (String nome) {
         final Aula aula = new Aula();
         aula.setNome(nome);
@@ -33,9 +27,9 @@ public class AulaRepositorio {
         return result.hasNext() ? result.next() : null;
     }
 
-    public List<Aula> buscarPorIDAula (int id) {
+    public List<Aula> buscarPorIdDoCurso(int idCurso) {
         final Aula aula = new Aula();
-        aula.setId(id);
+        aula.setCursoId(idCurso);
         return container.queryByExample(aula);
     }
 

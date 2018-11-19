@@ -9,6 +9,14 @@ public class CalcularNotaServico {
 
     private AvaliacaoRepositorio avaliacaoRepositorio = new AvaliacaoRepositorio();
 
+    public void gravarAvaliacao(Avaliacao avaliacao) {
+        avaliacaoRepositorio.gravarAvaliacao(avaliacao);
+    }
+
+    public Avaliacao buscarAvaliacao(Integer IdCurso, Integer IdAluno) {
+        return avaliacaoRepositorio.buscarAvaliacao(IdCurso, IdAluno);
+    }
+
     public Avaliacao calcularNota(Avaliacao avaliacao) {
         for (Pergunta pergunta : avaliacao.getPerguntas()) {
             for (Alternativa alternativa : pergunta.listarAlternativas()) {

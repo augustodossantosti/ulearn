@@ -8,7 +8,7 @@ function listarCursos() {
     $.getJSON(apiInf.baseUrl + "cursos", function (data) {
         let itens = [];
         $.each(data, function (key, result) {
-             itens.push(`
+            itens.push(`
                 <div class="col-md-4">
                   <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
@@ -24,15 +24,7 @@ function listarCursos() {
                 </div>
              `);
         });
-        
+
         $('#listaDeCursos').append(itens.join(""));
     });
-}
-
-function adicionarCurso() {
-
-}
-
-function buscarCurso() {
-
 }
