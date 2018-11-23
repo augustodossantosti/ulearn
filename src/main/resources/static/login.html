@@ -8,7 +8,6 @@
     <title>Login - uLearn</title>
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
-    <script src="app/login.js"></script>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/uLearn.css">
     <link rel="stylesheet" href="app/login.css">
@@ -19,6 +18,8 @@
         <main id="main-content">
             <div class="authentication-form">
 
+                <div id="error-message" style="display: none" class="alert alert-danger" role="alert">Dados inválidos!</div>
+
                 <form name="register-form" class="register-form">
                     <input type="text" placeholder="Nome"  required />
                     <input type="email" placeholder="Email" required />
@@ -27,9 +28,9 @@
                     <p class="message">Já tem uma conta? <a href="#">Entrar</a></p>
                 </form>
 
-                <form name="login-form" class="login-form">
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Senha" required>
+                <form id="login-form" name="login-form" class="login-form" method="POST">
+                    <input name="username" id="username" type="text" placeholder="Usuário" required>
+                    <input name="password" id="password" type="password" placeholder="Senha" required>
                     <input class="btn-submit" type="submit" value="Entrar">
                     <p class="message">Ainda não assinou? <a href="#">Crie uma conta</a></p>
                 </form>
@@ -45,6 +46,27 @@
                 opacity: "toggle"
             }, "slow");
         });
+
+        $("#login-form").submit(login);
+
+        function login(event) {
+
+            event.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: $('#login-form').serialize(),
+                success: function (data) {
+                    $(location).attr('href','/');
+                },
+                error: function (req, status, error) {
+                    $('#username').val('');
+                    $('#password').val('');
+                    $('#error-message').css('display', 'block');
+                }
+            });
+        }
     </script>
 </body>
 

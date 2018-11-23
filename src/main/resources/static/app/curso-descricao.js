@@ -1,7 +1,7 @@
 $( carregarInformacoes );
 
 const apiUri = {
-    baseUrl: 'http://localhost:1234/ulearn/'
+    baseUrl: 'http://localhost:1234/'
 };
 
 function carregarInformacoes() {

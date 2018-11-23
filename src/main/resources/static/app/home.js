@@ -1,7 +1,7 @@
 $( montarSlide );
 
 const apiInf = {
-    baseUrl: 'http://localhost:1234/ulearn/'
+    baseUrl: 'http://localhost:1234/'
 };
 
 function montarSlide() {
@@ -14,10 +14,10 @@ function montarSlide() {
                     <div class="card-body d-flex flex-column align-items-start">
                       <strong class="d-inline-block mb-2 text-primary">${curso.categoria}</strong>
                       <h3 class="mb-0">
-                        <a class="text-dark" href="/ulearn/curso-descricao?id=${curso.id}">${curso.nome}</a>
+                        <a class="text-dark" href="/curso-descricao?id=${curso.id}">${curso.nome}</a>
                       </h3>
                       <p class="card-text mb-auto">${curso.resumo}</p>
-                      <a href="/ulearn/curso-descricao?id=${curso.id}">Saiba mais...</a>
+                      <a href="/curso-descricao?id=${curso.id}">Saiba mais...</a>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" src="${curso.linkCapa}" alt="Capa do curso">
                   </div>
