@@ -25,7 +25,7 @@ function montarSlide() {
              `);
         });
 
-        $('#listaDeCursos').append(itens.join(""));
+        $('#listaDeCursos').append(itens.join(''));
 
         $('#listaDeCursos').slick({
             dots: true,

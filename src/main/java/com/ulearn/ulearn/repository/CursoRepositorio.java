@@ -23,13 +23,13 @@ public class CursoRepositorio {
         adicionarCurso(new Curso(3, "PHP", "Development", "Aprenda PHP e domine o mundo!",
                 "https://www.cursosgratisonline.com.br/curso/images/207-php.jpg",
                 "Descrição do curso de PHP.", "Bruno Rodrigues"));
-        adicionarCurso(new Curso(4, "Java", "Development", "Aprenda Java e domine o mundo!",
+        adicionarCurso(new Curso(4, "Java", "TI", "Aprenda Java e domine o mundo!",
                 "https://www.wreducacional.com.br/img_cursos/prod/img_610x320/informatica/linguagem-de-programacao-de-java.jpg",
                 "Descrição do curso de Java.", "Bruno Rodrigues"));
-        adicionarCurso(new Curso(5, "PHP", "Development", "Aprenda PHP e domine o mundo!",
+        adicionarCurso(new Curso(5, "PHP", "TI", "Aprenda PHP e domine o mundo!",
                 "https://www.cursosgratisonline.com.br/curso/images/207-php.jpg",
                 "Descrição do curso de PHP.", "Bruno Rodrigues"));
-        adicionarCurso(new Curso(6, "Python", "Development", "Aprenda Python e domine o mundo!",
+        adicionarCurso(new Curso(6, "Python", "TI", "Aprenda Python e domine o mundo!",
                 "https://2.bp.blogspot.com/-4bKb2pG_jfA/WTTPJDOqa6I/AAAAAAAAAKU/wacHnUfGNpMk_tSl6LyQCbip8I9bHDKGgCLcB/s640/Curso-online-de-Python-principal-11-460x281.png",
                 "Descrição do curso de Python.", "Bruno Rodrigues"));
     }
