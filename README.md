@@ -1,2 +1,2 @@
 # ulearn
-Projeto para a disciplina de lab3 na FATEC
+Plataforma de cursos online para a disciplina de Laboratório de Desenvolvimento de Software 3 do curso de graduação em Banco de Dados da FATEC.
