@@ -20,6 +20,11 @@ public class CursoController {
         return acessoAoCursoServico.listarCursos();
     }
 
+    @GetMapping(path = "/top")
+    public List<Curso> cursosMaisAssinados() {
+        return acessoAoCursoServico.cursosMaisAssinados();
+    }
+
     @PostMapping
     public void adicionarCurso(@RequestBody Curso curso) {
         acessoAoCursoServico.adicionarCurso(curso);

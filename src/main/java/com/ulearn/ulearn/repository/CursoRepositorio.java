@@ -32,6 +32,9 @@ public class CursoRepositorio {
         adicionarCurso(new Curso(6, "Python", "TI", "Aprenda Python e domine o mundo!",
                 "https://2.bp.blogspot.com/-4bKb2pG_jfA/WTTPJDOqa6I/AAAAAAAAAKU/wacHnUfGNpMk_tSl6LyQCbip8I9bHDKGgCLcB/s640/Curso-online-de-Python-principal-11-460x281.png",
                 "Descrição do curso de Python.", "Bruno Rodrigues"));
+        adicionarCurso(new Curso(7, "Go", "TI", "Aprenda Go e domine o mundo!",
+                "https://2.bp.blogspot.com/-4bKb2pG_jfA/WTTPJDOqa6I/AAAAAAAAAKU/wacHnUfGNpMk_tSl6LyQCbip8I9bHDKGgCLcB/s640/Curso-online-de-Python-principal-11-460x281.png",
+                "Descrição do curso de Go.", "Bruno Rodrigues"));
     }
 
     public List<Curso> listarAlunos() {

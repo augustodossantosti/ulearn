@@ -1,7 +1,6 @@
 package com.ulearn.ulearn.configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,16 +8,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.savedrequest.SavedRequest;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @EnableWebSecurity
 public class ConfiguracaoSpringSecurity extends WebSecurityConfigurerAdapter {
 
-    private final String[] allowedUrls = {"/", "/index.html"};
+    private final String[] allowedUrls = {"/", "/index.html", "/cursos/top"};
     private final String[] resourcesUrls = {"/app/**", "/resources/**", "/favicon.ico"};
 
     @Override
