@@ -57,8 +57,9 @@
                 type: 'POST',
                 url: '/login',
                 data: $('#login-form').serialize(),
-                success: function (data) {
-                    $(location).attr('href','/');
+                success: function (data, status, xhr) {
+                    const redirectUrl = xhr.getResponseHeader("REDIRECT_TO");
+                    $(location).attr('href',redirectUrl);
                 },
                 error: function (req, status, error) {
                     $('#username').val('');

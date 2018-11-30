@@ -16,7 +16,7 @@ function carregarInformacoes() {
 }
 
 function preencherCampos(curso) {
-    $(document).attr("title", curso.nome);
+    $(document).attr("title", "Ulearn - " + curso.nome);
     $('#curso-nome').text(curso.nome);
     $('#curso-categoria').text(curso.categria);
     $('#curso-descricao').text(curso.descricao);

@@ -5,7 +5,7 @@ const apiInf = {
 };
 
 function montarSlide() {
-    $.getJSON(apiInf.baseUrl + "cursos", function (data) {
+    $.getJSON(apiInf.baseUrl + "cursos/top", function (data) {
         let itens = [];
         $.each(data, function (key, curso) {
             itens.push(`
@@ -25,7 +25,7 @@ function montarSlide() {
              `);
         });
 
-        $('#listaDeCursos').append(itens.join(""));
+        $('#listaDeCursos').append(itens.join(''));
 
         $('#listaDeCursos').slick({
             dots: true,

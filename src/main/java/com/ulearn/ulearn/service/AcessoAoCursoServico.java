@@ -7,6 +7,7 @@ import com.ulearn.ulearn.repository.CursoRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AcessoAoCursoServico {
 
@@ -24,6 +25,11 @@ public class AcessoAoCursoServico {
             encontrados.add(cursoRepositorio.buscarCursoPorId(acesso.getCursoId()));
         }
         return encontrados;
+    }
+
+    public List<Curso> cursosMaisAssinados() {
+        return acessoAoCursoRepositorio.cursosMaisAssinados()
+                .stream().map(cursoId -> cursoRepositorio.buscarCursoPorId(cursoId)).collect(Collectors.toList());
     }
 
     public void adicionarCurso(Curso curso) {
