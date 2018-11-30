@@ -22,9 +22,18 @@ public class ConfiguracaoSpringSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("usuario").password(passwordEncoder().encode("senha")).roles("USER")
+                .withUser("user1").password(passwordEncoder().encode("user1")).roles("USER", "ADMIN")
             .and()
-                .withUser("admin").password(passwordEncoder().encode("admin")).roles("USER", "ADMIN");
+                .withUser("user2").password(passwordEncoder().encode("user2")).roles("USER")
+            .and()
+                .withUser("user3").password(passwordEncoder().encode("user3")).roles("USER")
+            .and()
+                .withUser("user4").password(passwordEncoder().encode("user4")).roles("USER")
+            .and()
+                .withUser("user5").password(passwordEncoder().encode("user5")).roles("USER")
+            .and()
+                .withUser("user6").password(passwordEncoder().encode("user6")).roles("USER");
+
     }
 
     @Override

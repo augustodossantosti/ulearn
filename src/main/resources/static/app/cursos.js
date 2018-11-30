@@ -5,7 +5,7 @@ const apiInf = {
 };
 
 function carregarCursos() {
-    $.getJSON(apiInf.baseUrl + "cursos", function (data) {
+    $.getJSON(apiInf.baseUrl + "cursos/meus-cursos", function (data) {
 
         let itens = new Map();
         $.each(data, function (key, curso) {
@@ -17,7 +17,6 @@ function carregarCursos() {
                             <h3>${curso.nome}</h3>
                             <p>${curso.resumo}</p>
                             <p>
-                                <a href="/" class="btn btn-primary" role="button">Assinar</a>
                                 <a href="/curso-descricao?id=${curso.id}" class="btn btn-default" role="button">Detalhes</a>
                             </p>
                         </div>
@@ -28,7 +27,7 @@ function carregarCursos() {
             if (itens.has(curso.categoria)) {
                 itens.get(curso.categoria).push(template);
             } else {
-                $('#main').append(`<h6>${curso.categoria}:</h6><div id="row-${curso.categoria}" class="row"></div>`);
+                $('#main').append(`<h6 class="curso-categoria">${curso.categoria}:</h6><div id="row-${curso.categoria}" class="row"></div>`);
                 itens.set(curso.categoria, [template]);
             }
         });

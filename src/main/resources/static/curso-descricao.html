@@ -2,19 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
     <script src="resources/js/jquery-3.3.1.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="app/curso-descricao.js"></script>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link rel="stylesheet" href="app/uLearn.css">
-    <title></title>
 </head>
 <body>
-    <h1 id="curso-nome"></h1>
-    <div>
-        <p id="curso-categoria"></p>
-        <p id="curso-descricao"></p>
-    </div>
+    <section id="land-container">
+        <section class="descricao-titulo">
+            <h1 id="curso-nome"></h1>
+            <h6 id="curso-categoria"></h6>
+            <div>
+                <img class="curso-capa" src="#">
+            </div>
+        </section>
+        <section class="descricao-categoria">
+            <p id="curso-descricao"></p>
+        </section>
+        <section class="descricao-acoes">
+            <button id="btn-assinar">Assinar</button>
+        </section>
+    </section>
 </body>
 </html>
