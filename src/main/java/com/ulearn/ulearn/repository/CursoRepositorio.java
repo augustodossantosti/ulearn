@@ -21,7 +21,7 @@ public class CursoRepositorio {
                 "https://www.wreducacional.com.br/img_cursos/prod/img_610x320/informatica/linguagem-de-programacao-de-java.jpg",
                 "Descrição do curso de Java.", "Bruno Rodrigues"));
         adicionarCurso(new Curso(3, "PHP", "Development", "Aprenda PHP e domine o mundo!",
-                "https://www.cursosgratisonline.com.br/curso/images/207-php.jpg",
+                "/",
                 "Descrição do curso de PHP.", "Bruno Rodrigues"));
         adicionarCurso(new Curso(4, "Java", "TI", "Aprenda Java e domine o mundo!",
                 "https://www.wreducacional.com.br/img_cursos/prod/img_610x320/informatica/linguagem-de-programacao-de-java.jpg",

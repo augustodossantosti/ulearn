@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @EnableWebSecurity
 public class ConfiguracaoSpringSecurity extends WebSecurityConfigurerAdapter {
 
-    private final String[] allowedUrls = {"/", "/index.html", "/cursos/top"};
+    private final String[] allowedUrls = {"/", "/index.html", "/cursos/top", "/cursos", "/curso-descricao"};
     private final String[] resourcesUrls = {"/app/**", "/resources/**", "/favicon.ico"};
 
     @Override
