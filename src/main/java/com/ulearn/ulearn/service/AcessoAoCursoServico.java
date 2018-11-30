@@ -18,8 +18,8 @@ public class AcessoAoCursoServico {
         return cursoRepositorio.listarCursos();
     }
 
-    public List<Curso> listarCursosDoAluno(Integer idAluno) {
-        final List<AcessoAoCurso> acessos = acessoAoCursoRepositorio.buscarAcessosDoAluno(idAluno);
+    public List<Curso> listarCursosDoAluno(String username) {
+        final List<AcessoAoCurso> acessos = acessoAoCursoRepositorio.buscarAcessosDoAluno(username);
         final List<Curso> encontrados = new ArrayList<>();
         for (AcessoAoCurso acesso : acessos) {
             encontrados.add(cursoRepositorio.buscarCursoPorId(acesso.getCursoId()));
@@ -48,12 +48,12 @@ public class AcessoAoCursoServico {
         return cursoRepositorio.buscarCursoPorId(id);
     }
 
-    public void concederAcesso(int cursoId, int alunoId) {
-        final AcessoAoCurso acessoAoCurso = new AcessoAoCurso(cursoId, alunoId);
+    public void concederAcesso(int cursoId, String username) {
+        final AcessoAoCurso acessoAoCurso = new AcessoAoCurso(cursoId, username);
         acessoAoCursoRepositorio.concederAcesso(acessoAoCurso);
     }
 
-    public void revogarAcesso(int cursoId, int alunoId) {
-        acessoAoCursoRepositorio.revogarAcesso(cursoId, alunoId);
+    public void revogarAcesso(int cursoId, String username) {
+        acessoAoCursoRepositorio.revogarAcesso(cursoId, username);
     }
 }
