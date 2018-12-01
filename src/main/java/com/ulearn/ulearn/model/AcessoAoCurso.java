@@ -12,6 +12,6 @@ import lombok.Setter;
 public class AcessoAoCurso {
 
     private Integer cursoId;
-    private Integer alunoId;
+    private String username;
 
 }
