@@ -10,8 +10,3 @@ Willian Dener da Silva
 
 #prints
 ![home](https://user-images.githubusercontent.com/14900606/49321608-8c1ef400-f4ef-11e8-832c-8a2e3f12b799.PNG)
-#imagens
-![curso-algoritmo](https://user-images.githubusercontent.com/14900606/49321655-e324c900-f4ef-11e8-8f9c-951ef67f4e74.jpg)
-
-
-Entre outras imagens é nois ....
